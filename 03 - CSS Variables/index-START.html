@@ -16,11 +16,31 @@
 
     <label for="base">Base Color</label>
     <input id="base" type="color" name="base" value="#ffc600">
-  </div>
+  </div> 
 
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
 
   <style>
+	/*
+	assigning css variables to the root or top level. Variables are defined using --variable name
+	*/
+	:root {
+		--base: #ffc600;
+		--spacing: 10px;
+		--blur: 10px;
+	}
+
+	/*
+	to use variables in css you use var(variable name) as the value of your key
+
+	*/
+
+	img {
+		padding: var(--spacing);
+		background: var(--base);
+		filter: blur(var(--blur));
+	}
+
 
     /*
       misc styles, nothing to do with CSS variables
