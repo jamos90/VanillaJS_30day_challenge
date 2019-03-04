@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Scoped CSS Variables and JS</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js"></script>
+  
 </head>
 <body>
   <h2>Update CSS Variables with <span class='hl'>JS</span></h2>
@@ -19,72 +22,6 @@
   </div> 
 
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500">
-
-  <style>
-	/*
-	assigning css variables to the root or top level. Variables are defined using --variable name
-	*/
-	:root {
-		--base: #ffc600;
-		--spacing: 10px;
-		--blur: 10px;
-	}
-
-	/*
-	to use variables in css you use var(variable name) as the value of your key
-
-	*/
-
-	img {
-		padding: var(--spacing);
-		background: var(--base);
-		filter: blur(var(--blur));
-	}
-
-	.h1 {
-		color: var(--base);
-	}
-
-
-    /*
-      misc styles, nothing to do with CSS variables
-    */
-
-    body {
-      text-align: center;
-      background: #193549;
-      color: white;
-      font-family: 'helvetica neue', sans-serif;
-      font-weight: 100;
-      font-size: 50px;
-    }
-
-    .controls {
-      margin-bottom: 50px;
-    }
-
-    input {
-      width: 100px;
-    }
-  </style>
-
-  <script>
-	/*
-	query selectorAll returns a node list not an array. The difference is that a node list does not have as many methods that can be called on compared to an array.
-	*/
-	  const inputs = document.querySelectorAll('.controls input');
-
-	function handleUpdate() {
-	
-		//dataset is an object containing all the data- attributes in the element that has been selected.
-		const suffix = this.dataset.sizing || "";
-		document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
-	}
-
-	inputs.forEach(input => input.addEventListener('change', handleUpdate));
-	inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
-
-  </script>
 
 </body>
 </html>
